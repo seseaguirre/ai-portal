@@ -56,7 +56,7 @@ export function Help() {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' },
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
           gap: 2,
           mb: 4,
           maxWidth: 960,

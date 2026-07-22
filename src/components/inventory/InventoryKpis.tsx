@@ -46,10 +46,7 @@ export function InventoryKpis({ assets }: { assets: InventoryAsset[] }) {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: {
-          xs: '1fr 1fr',
-          md: 'repeat(4, 1fr)',
-        },
+        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
         gap: 2,
         mb: 3,
       }}

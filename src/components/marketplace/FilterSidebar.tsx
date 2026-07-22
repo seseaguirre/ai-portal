@@ -72,7 +72,7 @@ export function FilterSidebar({ filters, onChange }: FilterSidebarProps) {
     filters.search !== ''
 
   return (
-    <Box component="aside" aria-label="Filters" sx={{ width: 248, flexShrink: 0 }}>
+    <Box component="aside" aria-label="Filters" sx={{ width: { xs: '100%', md: 248 }, flexShrink: 0 }}>
       <TextField
         fullWidth
         size="small"

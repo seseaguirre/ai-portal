@@ -76,33 +76,88 @@ function RailItem({ item, active }: { item: NavItem; active: boolean }) {
   )
 }
 
+function BottomNavItem({ item, active }: { item: NavItem; active: boolean }) {
+  const Icon = item.icon
+  return (
+    <Box
+      component={NavLink}
+      to={item.to}
+      sx={(t) => ({
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 0.25,
+        flex: 1,
+        py: 0.75,
+        textDecoration: 'none',
+        color: active
+          ? t.tokens.color.brand.accent
+          : t.tokens.color.text.secondary,
+      })}
+    >
+      <Icon sx={{ fontSize: 20 }} />
+      <Typography variant="caption" sx={{ fontSize: '0.625rem', fontWeight: 600 }}>
+        {item.label}
+      </Typography>
+    </Box>
+  )
+}
+
 export function NavRail() {
   const persona = useActivePersona()
   const { pathname } = useLocation()
   const visible = items.filter((i) => !i.oaeOnly || persona?.canSeeInventory)
 
   return (
-    <Box
-      component="nav"
-      aria-label="Primary"
-      sx={(t) => ({
-        width: 92,
-        flexShrink: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 1,
-        pt: 2,
-        backgroundColor: t.tokens.color.surface.inverse,
-      })}
-    >
-      {visible.map((item) => (
-        <RailItem
-          key={item.to}
-          item={item}
-          active={isActive(pathname, item.to)}
-        />
-      ))}
-    </Box>
+    <>
+      {/* Desktop side rail */}
+      <Box
+        component="nav"
+        aria-label="Primary"
+        sx={(t) => ({
+          width: 92,
+          flexShrink: 0,
+          display: { xs: 'none', md: 'flex' },
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 1,
+          pt: 2,
+          backgroundColor: t.tokens.color.surface.inverse,
+        })}
+      >
+        {visible.map((item) => (
+          <RailItem
+            key={item.to}
+            item={item}
+            active={isActive(pathname, item.to)}
+          />
+        ))}
+      </Box>
+
+      {/* Mobile bottom nav */}
+      <Box
+        component="nav"
+        aria-label="Primary"
+        sx={(t) => ({
+          display: { xs: 'flex', md: 'none' },
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: t.zIndex.appBar,
+          backgroundColor: t.tokens.color.surface.raised,
+          borderTop: 1,
+          borderColor: t.tokens.color.border.subtle,
+        })}
+      >
+        {visible.map((item) => (
+          <BottomNavItem
+            key={item.to}
+            item={item}
+            active={isActive(pathname, item.to)}
+          />
+        ))}
+      </Box>
+    </>
   )
 }

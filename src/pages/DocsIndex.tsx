@@ -19,7 +19,7 @@ export function DocsIndex() {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: 2,
           maxWidth: 900,
         }}

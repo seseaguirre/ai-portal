@@ -46,6 +46,7 @@ export function AppShell() {
               mx: 'auto',
               px: { xs: 2, md: 4 },
               py: 3,
+              pb: { xs: 10, md: 3 },
             }}
           >
             <Outlet />
