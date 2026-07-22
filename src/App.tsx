@@ -6,7 +6,8 @@ import { buildAppTheme, type ThemeVariant } from '@/theme'
 import { RequireAuth } from '@/components/shell/RequireAuth'
 import { AppShell } from '@/components/shell/AppShell'
 import { Login } from '@/pages/Login'
-import { Home } from '@/pages/Home'
+import { Landing } from '@/pages/Landing'
+import { Search } from '@/pages/Search'
 import { Marketplace } from '@/pages/Marketplace'
 import { SelfService } from '@/pages/SelfService'
 import { MyRequests } from '@/pages/MyRequests'
@@ -48,7 +49,8 @@ export function App() {
           <Route path="/login" element={<Login />} />
           <Route element={<RequireAuth />}>
             <Route element={<AppShell />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/marketplace/:id" element={<Marketplace />} />
               <Route path="/self-service" element={<SelfService />} />

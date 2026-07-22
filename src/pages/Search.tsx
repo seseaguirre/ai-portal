@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom'
 import { SearchHero } from '@/components/search/SearchHero'
 import { SearchResults } from '@/components/search/SearchResults'
 
-export function Home() {
+export function Search() {
   const [params, setParams] = useSearchParams()
   const query = params.get('q')?.trim() ?? ''
   const runSearch = (value: string) => setParams(value ? { q: value } : {})

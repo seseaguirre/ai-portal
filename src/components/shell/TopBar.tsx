@@ -46,7 +46,7 @@ export function TopBar() {
         </Box>
 
         <Button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/search')}
           startIcon={<SearchOutlined />}
           variant="outlined"
           color="inherit"

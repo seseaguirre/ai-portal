@@ -2,6 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
+import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import SearchOutlined from '@mui/icons-material/SearchOutlined'
 import StorefrontOutlined from '@mui/icons-material/StorefrontOutlined'
 import AutoFixHighOutlined from '@mui/icons-material/AutoFixHighOutlined'
@@ -19,7 +20,8 @@ interface NavItem {
 }
 
 const items: NavItem[] = [
-  { label: 'Search', to: '/', icon: SearchOutlined },
+  { label: 'Home', to: '/', icon: HomeOutlined },
+  { label: 'Search', to: '/search', icon: SearchOutlined },
   { label: 'Marketplace', to: '/marketplace', icon: StorefrontOutlined },
   { label: 'Self-service', to: '/self-service', icon: AutoFixHighOutlined },
   { label: 'Inventory', to: '/inventory', icon: AccountTreeOutlined, oaeOnly: true },
@@ -28,7 +30,7 @@ const items: NavItem[] = [
 ]
 
 const isActive = (pathname: string, to: string) =>
-  to === '/' ? pathname === '/' : pathname.startsWith(to)
+  to === '/' ? pathname === '/' : pathname === to || pathname.startsWith(to + '/')
 
 function RailItem({ item, active }: { item: NavItem; active: boolean }) {
   const Icon = item.icon

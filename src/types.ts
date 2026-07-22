@@ -167,6 +167,22 @@ export interface DocPage {
   sections: DocSection[]
 }
 
+// --- Pixel Office -----------------------------------------------------------
+
+export type OfficeStatus = 'idle' | 'working' | 'reviewing' | 'blocked' | 'away'
+
+export interface OfficeAgent {
+  id: string
+  name: string
+  role: string
+  squad: 'MiniMax' | 'Gemma' | 'Kimi' | 'Vector' | 'Platform'
+  desk: { x: number; y: number }
+  spriteKey: string
+  status: OfficeStatus
+  currentTask?: string
+  contact?: string
+}
+
 // --- Notifications ----------------------------------------------------------
 
 export type NotificationKind = 'approved' | 'info' | 'pending'

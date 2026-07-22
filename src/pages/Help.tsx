@@ -21,7 +21,7 @@ const tasks: Task[] = [
   {
     title: 'Ask a question',
     description: 'Get a plain-language answer with links to the right docs and tools.',
-    to: '/',
+    to: '/search',
     icon: SearchOutlined,
   },
   {
