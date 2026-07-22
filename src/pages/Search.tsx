@@ -1,15 +1,14 @@
 import { useSearchParams } from 'react-router-dom'
-import { SearchHero } from '@/components/search/SearchHero'
-import { SearchResults } from '@/components/search/SearchResults'
+import Box from '@mui/material/Box'
+import { ChatThread } from '@/components/search/ChatThread'
 
 export function Search() {
-  const [params, setParams] = useSearchParams()
-  const query = params.get('q')?.trim() ?? ''
-  const runSearch = (value: string) => setParams(value ? { q: value } : {})
+  const [params] = useSearchParams()
+  const initialQuery = params.get('q')?.trim() || undefined
 
-  return query ? (
-    <SearchResults key={query} query={query} onSearch={runSearch} />
-  ) : (
-    <SearchHero onSubmit={runSearch} />
+  return (
+    <Box sx={{ height: 'calc(100vh - 64px)' }}>
+      <ChatThread key={initialQuery} initialQuery={initialQuery} />
+    </Box>
   )
 }

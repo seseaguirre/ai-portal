@@ -29,7 +29,10 @@ export function SearchBar({
   const submit = (event: FormEvent) => {
     event.preventDefault()
     const trimmed = value.trim()
-    if (trimmed) onSubmit(trimmed)
+    if (trimmed) {
+      onSubmit(trimmed)
+      setValue('')
+    }
   }
 
   return (
