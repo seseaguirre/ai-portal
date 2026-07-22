@@ -64,6 +64,7 @@ export function RequestStepper({
 
   const submit = () => {
     const isMcp = kind === 'mcp' && technical
+    const hasRepo = kind === 'transformer' || kind === 'assessor'
     setCreated(
       createRequest({
         kind: form.kind,
@@ -74,6 +75,7 @@ export function RequestStepper({
         dataClass: form.dataClass,
         transport: isMcp ? form.transport : undefined,
         targetSystem: isMcp && form.targetSystem ? form.targetSystem : undefined,
+        repoUrl: hasRepo && form.repoUrl ? form.repoUrl : undefined,
         requestedBy: persona?.name ?? 'You',
       }),
     )

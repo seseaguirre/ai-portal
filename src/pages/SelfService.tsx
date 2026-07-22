@@ -7,6 +7,8 @@ import LanOutlined from '@mui/icons-material/LanOutlined'
 import AutoAwesomeOutlined from '@mui/icons-material/AutoAwesomeOutlined'
 import WorkspacesOutlined from '@mui/icons-material/WorkspacesOutlined'
 import PsychologyOutlined from '@mui/icons-material/PsychologyOutlined'
+import TransformOutlined from '@mui/icons-material/TransformOutlined'
+import FactCheckOutlined from '@mui/icons-material/FactCheckOutlined'
 import type { SvgIconComponent } from '@mui/icons-material'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { SelfServiceTabs } from '@/components/selfservice/SelfServiceTabs'
@@ -44,6 +46,18 @@ const options: EntryOption[] = [
     title: 'AI model access',
     description: 'Access to an approved AI model for your use case.',
     icon: PsychologyOutlined,
+  },
+  {
+    kind: 'transformer',
+    title: 'Transformer',
+    description: 'Transform and refactor a brownfield project into an agentic-ready form.',
+    icon: TransformOutlined,
+  },
+  {
+    kind: 'assessor',
+    title: 'Assessor',
+    description: 'Assess a project or repository for agentic workflow readiness.',
+    icon: FactCheckOutlined,
   },
 ]
 

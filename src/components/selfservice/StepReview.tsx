@@ -38,6 +38,7 @@ export function StepReview({ form }: { form: RequestForm }) {
       <Row label="Data classification" value={dataClassLabel[form.dataClass]} />
       {showMcp && <Row label="Transport" value={form.transport} />}
       {showMcp && <Row label="Target system" value={form.targetSystem} />}
+      {form.repoUrl.trim() !== '' && <Row label="Repository" value={form.repoUrl} />}
     </Box>
   )
 }

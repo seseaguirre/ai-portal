@@ -18,6 +18,7 @@ interface StepConfigureProps {
 
 export function StepConfigure({ form, onChange, technical }: StepConfigureProps) {
   const showMcpFields = technical && form.kind === 'mcp'
+  const showRepoField = form.kind === 'transformer' || form.kind === 'assessor'
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, maxWidth: 560 }}>
@@ -59,6 +60,21 @@ export function StepConfigure({ form, onChange, technical }: StepConfigureProps)
           </MenuItem>
         ))}
       </TextField>
+
+      {showRepoField && (
+        <TextField
+          label="Repository URL"
+          placeholder="e.g. https://dev.azure.com/orsted/my-project"
+          helperText={
+            form.kind === 'transformer'
+              ? 'The repo to transform into an agentic-ready structure.'
+              : 'The repo to assess for agentic workflow readiness.'
+          }
+          value={form.repoUrl}
+          onChange={(event) => onChange({ repoUrl: event.target.value })}
+          fullWidth
+        />
+      )}
 
       {showMcpFields && (
         <>

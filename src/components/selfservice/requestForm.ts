@@ -9,6 +9,7 @@ export interface RequestForm {
   dataClass: DataClass
   transport: string
   targetSystem: string
+  repoUrl: string
   ackResponsibleAi: boolean
 }
 
@@ -21,6 +22,7 @@ export const blankForm = (kind: RequestKind): RequestForm => ({
   dataClass: 'internal',
   transport: 'HTTP + SSE',
   targetSystem: '',
+  repoUrl: '',
   ackResponsibleAi: false,
 })
 

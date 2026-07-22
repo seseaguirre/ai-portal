@@ -11,6 +11,7 @@ interface NewRequestInput {
   dataClass: ProvisioningRequest['dataClass']
   transport?: string
   targetSystem?: string
+  repoUrl?: string
   requestedBy: string
 }
 

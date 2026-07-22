@@ -40,6 +40,8 @@ export const requestKindLabel: Record<RequestKind, string> = {
   skill: 'Skill',
   'agent-workspace': 'Agent workspace',
   'model-access': 'AI model access',
+  transformer: 'Transformer',
+  assessor: 'Assessor',
 }
 
 export const riskTierLabel: Record<RiskTier, string> = {

@@ -100,7 +100,7 @@ export interface InventoryAsset {
 
 // --- Self-service requests --------------------------------------------------
 
-export type RequestKind = 'mcp' | 'skill' | 'agent-workspace' | 'model-access'
+export type RequestKind = 'mcp' | 'skill' | 'agent-workspace' | 'model-access' | 'transformer' | 'assessor'
 
 export type RequestState =
   | { status: 'submitted' }
@@ -121,6 +121,7 @@ export interface ProvisioningRequest {
   dataClass: DataClass
   transport?: string
   targetSystem?: string
+  repoUrl?: string
   submittedOn: string
   requestedBy: string
   state: RequestState
